@@ -5,6 +5,7 @@ max_train_steps = 500
 network_module = "networks.lora"
 xformers = true
 gradient_checkpointing = true
+lowram = false
 persistent_data_loader_workers = false
 max_data_loader_n_workers = 0
 enable_bucket = true
