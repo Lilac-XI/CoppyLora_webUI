@@ -185,7 +185,6 @@ exit /b 0
 echo Starting main execution
 
 REM Define hashes
-set "SDXL_animagine-xl-3.1_hash=e3c47aedb06418c6c331443cd89f2b3b3b34b7ed2102a3d4c4408a8d35aad6b0"
 set "tagger_config_hash=ddcdd28facc40ee8d0ef4b16ee3e7c70e4d7b156aff7b0f2ccc180e617eda795"
 set "tagger_model_hash=e6774bff34d43bd49f75a47db4ef217dce701c9847b546523eb85ff6dbba1db1"
 set "tagger_selected_tags_hash=298633d94d0031d2081c0893f29c82eab7f0df00b08483ba8f29d1e979441217"
@@ -198,9 +197,6 @@ set "LoRa_copi-ki-base-girl_cl_am31_hash=8979e0cee623891d15980ca1513cd6b5d976841
 set "LoRa_copi-ki-base-girl_ncl_am31_hash=e14961aed6102b17b920dea89c7a30fbc48910b66ce833f775806f34ed581f68"
 set "LoRa_copi-ki-base-girl_ncnl_am31_hash=f7d3d0f2bc9896751865cabf05de1d383b1d86d6b643a805868e9372bbb590d4"
 set "LoRa_copi-ki-base-girl_cnl_am31_hash=f3925e4c51c1f2cb2dd339849713e2502808741f08e42246eb2b6e5f01f0c4ce"
-
-echo Downloading Stable-diffusion model:
-call :download_files_default "SDXL" "cagliostrolab/animagine-xl-3.1" "animagine-xl-3.1.safetensors"
 
 echo Downloading Tagger model:
 call :download_files_default "tagger" "SmilingWolf/wd-swinv2-tagger-v3" "config.json,model.onnx,selected_tags.csv,sw_jax_cv_config.json"

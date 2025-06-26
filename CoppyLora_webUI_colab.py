@@ -14,10 +14,14 @@ import threading
 import socket
 import toml
 import subprocess
+import ipywidgets as widgets
+from IPython.display import display
 
 def completedMessage():
     """タスク完了メッセージを表示"""
-    print("Task completed")
+    completed = widgets.Button(description='Completed', button_style='success', icon='check')
+    print('\n')
+    display(completed)
 
 
 path = os.path.dirname(os.path.abspath(__file__))
