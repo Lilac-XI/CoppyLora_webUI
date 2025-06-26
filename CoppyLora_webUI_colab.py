@@ -15,6 +15,10 @@ import socket
 import toml
 import subprocess
 
+def completedMessage():
+    """タスク完了メッセージを表示"""
+    print("Task completed")
+
 
 path = os.path.dirname(os.path.abspath(__file__))
 sd_scripts_dir = os.path.join(path, 'sd-scripts')
@@ -420,8 +424,9 @@ def simple_train(base_model, input_image_path, lora_name, mode_inputs, character
         "dynamic_method": None,
         "lbws": [],
     }
-    args = argparse.Namespace(**args_dict)  
+    args = argparse.Namespace(**args_dict)
     resize.resize(args)
+    completedMessage()
     return train_lora
 
 
@@ -662,8 +667,9 @@ def detail_train(base_model, detail_lora_name, detail_base_img_path, detail_base
         "dynamic_method": None,
          "lbws": [],       
     }
-    args = argparse.Namespace(**args_dict)  
+    args = argparse.Namespace(**args_dict)
     resize.resize(args)
+    completedMessage()
     return train_lora
 
 
@@ -749,9 +755,10 @@ def main():
     url = f"http://127.0.0.1:{port}"
 
     threading.Thread(target=lambda: webbrowser.open_new(url)).start()
-    is_colab = 'COLAB_GPU' in os.environ
-    share_setting = True if is_colab else False
-    demo.launch(share=share_setting, server_name="0.0.0.0", server_port=port)
+    share_setting = True  # always share for external access
+    app = demo.launch(share=share_setting, server_name="0.0.0.0", server_port=port)
+    if share_setting and hasattr(app, "share_url") and app.share_url:
+        print(f"Public URL: {app.share_url}")
 
 if __name__ == "__main__":
     main()

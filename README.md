@@ -6,7 +6,8 @@
 - **Python**: 3.11.x
 - **CUDA**: 12.1
 
-- Pythonパッケージ`toml`が必要 (`pip install toml` でインストール)
+- Pythonパッケージ`toml`、`imagesize`、`onnxruntime`が必要
+  (`pip install toml imagesize onnxruntime` でインストール)
 これらのバージョンに依存するライブラリやモジュールがありますので、互換性のある環境でビルドしてください。
 sd-scriptsライブラリを使用しているため、ビルド時にはバージョンを合わせた上で以下の手順が必要です。
 ①CoppyLora_webUI.py.ps1を実行してインストール<br>
